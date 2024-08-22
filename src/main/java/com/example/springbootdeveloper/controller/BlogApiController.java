@@ -3,6 +3,7 @@ package com.example.springbootdeveloper.controller;
 import com.example.springbootdeveloper.domain.Article;
 import com.example.springbootdeveloper.dto.AddArticleRequest;
 import com.example.springbootdeveloper.dto.ArticleReponse;
+import com.example.springbootdeveloper.dto.UpdateArticleRequest;
 import com.example.springbootdeveloper.service.Blogservice;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -45,4 +46,17 @@ public class BlogApiController {
        return ResponseEntity.ok().body(new ArticleReponse(article));
     }
 
+    /* 블로그 글 삭제 */
+    @DeleteMapping("/api/articles/{id}")
+    public ResponseEntity<Void> deleteArticle(@PathVariable Long id){
+        blogservice.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
+    /* 블로그 글 수정 */
+    @PutMapping("/api/articles/{id}")
+    public ResponseEntity<Article> updateArticle(@PathVariable Long id, @RequestBody UpdateArticleRequest request){
+        Article article = blogservice.update(id, request);
+        return ResponseEntity.ok().body(article);
+    }
 }
