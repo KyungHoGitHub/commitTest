@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 public class ExampleController {
-
+    // 주석추가
     @GetMapping("/thymeleaf/example")
     public String thymeleafExample(Model model) {
 
