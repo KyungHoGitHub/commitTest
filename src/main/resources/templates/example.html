@@ -17,6 +17,8 @@
         <span th:if="${hobby == '운동'}"></span>
     </ul>
 </div>
+<button type="button" class="btn btn-secondary" onclick="location.href='/logout/'">로그아웃</button>
 <a th:href="@{/api/articles/{id}(id=${person.id})}">글보기</a>
+<script src ="/js/article.js"></script>
 </body>
 </html>
